@@ -39,11 +39,11 @@ function get_orders(coin, exchange, cb) {
       if (body['bids'].length > 0){
           for (var i = 0; i < body['bids'].length; i++) {
             var order = {
-              amount: parseFloat(body[i].volume).toFixed(8),
-              price: parseFloat(body[i].price).toFixed(8),
+              amount: parseFloat(body['bids'][i].volume).toFixed(8),
+              price: parseFloat(body['bids'][i].price).toFixed(8),
               //  total: parseFloat(orders.buy[i].Total).toFixed(8)
               // Necessary because API will return 0.00 for small volume transactions
-              total: (parseFloat(body[i].volume).toFixed(8) * parseFloat(body[i].price)).toFixed(8)
+              total: (parseFloat(body['bids'][i].volume).toFixed(8) * parseFloat(body['bids'][i].price)).toFixed(8)
             }
             buys.push(order);
           }
@@ -51,11 +51,11 @@ function get_orders(coin, exchange, cb) {
       if (body['asks'].length > 0) {
         for (var x = 0; x < body['asks'].length; x++) {
             var order = {
-                amount: parseFloat(body[x].volume).toFixed(8),
-                price: parseFloat(body[x].price).toFixed(8),
+                amount: parseFloat(body['bids'][x].volume).toFixed(8),
+                price: parseFloat(body['bids'][x].price).toFixed(8),
                 //    total: parseFloat(orders.sell[x].Total).toFixed(8)
                 // Necessary because API will return 0.00 for small volume transactions
-                total: (parseFloat(body[x].volume).toFixed(8) * parseFloat(body[x].price)).toFixed(8)
+                total: (parseFloat(body['bids'][x].volume).toFixed(8) * parseFloat(body['bids'][x].price)).toFixed(8)
             }
             sells.push(order);
         }
