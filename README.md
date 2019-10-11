@@ -4,7 +4,7 @@ Altmarkets Iquidus Explorer apis
  
  Example:
  
- *  [Altmarkets](http://altmarketscoin.xyz/markets/altmarkets)
+ *  [Altmarkets](http://altmarketscoin.xyz:3001/markets/altmarkets)
  
 Simply drop `altmarkets.jade` in:
 
